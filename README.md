@@ -104,10 +104,8 @@ Built for maintainability and future enhancements:
 
 | Document | Description |
 |----------|-------------|
-| [README.md](./README.md) | This file - complete project overview |
-| [NEXT_STEPS.md](./NEXT_STEPS.md) | Step-by-step deployment guide for first-time setup |
-| [WORK_PLAN.md](./WORK_PLAN.md) | 9-phase project roadmap with detailed tasks |
-| [DEVELOPER_DIARY.md](./DEVELOPER_DIARY.md) | Development journey, decisions, and insights |
+| [README.md](./README.md) | This file - complete project overview, features, and API reference |
+| [DEPLOYMENT.md](./DEPLOYMENT.md) | Step-by-step deployment guide, CI/CD setup, and troubleshooting |
 
 ---
 
@@ -912,9 +910,7 @@ aws logs tail /aws/lambda/developer-portfolio-Api --follow
 ```
 
 **Review documentation:**
-- [NEXT_STEPS.md](./NEXT_STEPS.md) - Deployment guide
-- [WORK_PLAN.md](./WORK_PLAN.md) - Project roadmap
-- [DEVELOPER_DIARY.md](./DEVELOPER_DIARY.md) - Development insights
+- [DEPLOYMENT.md](./DEPLOYMENT.md) - Complete deployment guide with troubleshooting
 
 **External resources:**
 - [SST Documentation](https://docs.sst.dev/)
