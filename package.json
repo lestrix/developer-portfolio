@@ -1,0 +1,42 @@
+{
+  "name": "developer-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio showcasing 15+ years of software development projects",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter backend dev",
+    "dev:frontend": "pnpm --filter frontend dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
+    "typecheck": "pnpm -r typecheck",
+    "deploy": "pnpm --filter infra deploy",
+    "deploy:prod": "pnpm --filter infra deploy --stage production",
+    "clean": "pnpm -r clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/prompts": "^2.4.9",
+    "prettier": "^3.3.3",
+    "prompts": "^2.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  },
+  "author": {
+    "name": "Kong",
+    "description": "Physicist (University of Dortmund) & Software Developer with 15+ years experience"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "effect-ts",
+    "serverless",
+    "aws",
+    "react",
+    "typescript"
+  ]
+}
