@@ -23,13 +23,11 @@ const TABLE_NAME = process.env.TABLE_NAME || "PortfolioProjects";
 const generateId = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
 // Helper: JSON response
+// Note: CORS headers are managed by SST Function URL config
 const jsonResponse = (data: any, statusCode: number = 200) => ({
   statusCode,
   headers: {
     "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET,POST,PATCH,DELETE,OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
   },
   body: JSON.stringify(data),
 });
@@ -258,14 +256,10 @@ export const handler = async (
       return jsonResponse(null, 204);
     }
 
-    // OPTIONS - CORS preflight
+    // OPTIONS - CORS preflight (handled by SST Function URL config)
     if (method === "OPTIONS") {
       console.log("OPTIONS request for:", path);
-      return { statusCode: 204, headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,POST,PATCH,DELETE,OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-      }, body: "" };
+      return { statusCode: 204, headers: {}, body: "" };
     }
 
     // 404 - Route not found

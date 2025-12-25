@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import type { Project } from '@portfolio/shared';
 import './App.css';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:3000').replace(/\/$/, '');
 
 function App() {
   const [projects, setProjects] = useState<Project[]>([]);
