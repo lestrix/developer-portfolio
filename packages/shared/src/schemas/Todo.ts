@@ -44,9 +44,3 @@ export type UpdateTodoInput = S.Schema.Type<typeof UpdateTodoInput>;
  */
 export const TodoListResponse = S.Array(Todo);
 export type TodoListResponse = S.Schema.Type<typeof TodoListResponse>;
-
-export const ErrorResponse = S.Struct({
-  error: S.String,
-  details: S.optional(S.Unknown),
-});
-export type ErrorResponse = S.Schema.Type<typeof ErrorResponse>;

@@ -1,8 +1,8 @@
-import type { Todo, CreateTodoInput, UpdateTodoInput } from "@todo/shared";
+import type { Project, CreateProjectInput, UpdateProjectInput } from "@portfolio/shared";
 
 /**
- * Type-safe API client
- * Uses shared types from @todo/shared to prevent drift
+ * Type-safe API client for Portfolio Projects
+ * Uses shared types from @portfolio/shared to prevent drift
  */
 const API_BASE = (import.meta.env.VITE_API_URL || "/api").replace(/\/$/, "");
 
@@ -40,24 +40,24 @@ async function fetchJson<T>(url: string, options?: RequestInit): Promise<T> {
 export const api = {
   health: () => fetchJson<{ status: string; timestamp: string }>(`${API_BASE}/health`),
 
-  getTodos: () => fetchJson<Todo[]>(`${API_BASE}/todos`),
+  getProjects: () => fetchJson<Project[]>(`${API_BASE}/projects`),
 
-  getTodo: (id: string) => fetchJson<Todo>(`${API_BASE}/todos/${id}`),
+  getProject: (id: string) => fetchJson<Project>(`${API_BASE}/projects/${id}`),
 
-  createTodo: (input: CreateTodoInput) =>
-    fetchJson<Todo>(`${API_BASE}/todos`, {
+  createProject: (input: CreateProjectInput) =>
+    fetchJson<Project>(`${API_BASE}/projects`, {
       method: "POST",
       body: JSON.stringify(input),
     }),
 
-  updateTodo: (id: string, updates: UpdateTodoInput) =>
-    fetchJson<Todo>(`${API_BASE}/todos/${id}`, {
+  updateProject: (id: string, updates: UpdateProjectInput) =>
+    fetchJson<Project>(`${API_BASE}/projects/${id}`, {
       method: "PATCH",
       body: JSON.stringify(updates),
     }),
 
-  deleteTodo: (id: string) =>
-    fetchJson<void>(`${API_BASE}/todos/${id}`, {
+  deleteProject: (id: string) =>
+    fetchJson<void>(`${API_BASE}/projects/${id}`, {
       method: "DELETE",
     }),
 };
